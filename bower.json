@@ -1,0 +1,14 @@
+{
+  "name": "angular-pub-sub",
+  "version": "0.1.0-SNAPSH0T",
+  "authors": [
+    "Owen Buckley <obuckley@kenzan.com>"
+  ],
+  "description": "testing options for pub-sub without $rootScope",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.4.5"
+  }
+}
