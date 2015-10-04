@@ -4,19 +4,20 @@ angular
   .module('header')
   .controller('HeaderController', headerController);
 
-headerController.$inject = ['$log'];
+headerController.$inject = ['$log', 'NotificationsFactory'];
 
-function headerController ($log){
+function headerController ($log, NotificationsFactory){
   $log.debug('ENTER HeaderController');
   var vm = this;
+  var notifications = 0;
 
-  vm.notifications = [];
+  vm.test = 'hello world';
+  vm.NotificationsFactory = NotificationsFactory;
 
-  vm.hasNotifcations = function (){
-    return notifications.length > 0;
-  };
-
-  vm.notifcationsCount = function(){
-    return vm.notifications.length;
-  };
+  vm.setNotificationsCount = function(count){
+    notifications = parseInt(count, 10);
+    vm.test = count;
+    $log.debug('HeaderController vm.getNotificationsCount is ' + NotificationsFactory.getNotificationsCount());
+    $log.debug('HeaderController vm.hasNotifications is ' + NotificationsFactory.hasNotifications());
+  }
 }

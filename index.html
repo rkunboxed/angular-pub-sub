@@ -10,7 +10,10 @@
     <script src="./components/header/header-module.js"></script>
     <script src="./components/header/header-controller.js"></script>
     <script src="./components/header/header-directive.js"></script>
-
+    <script src="./components/notifications/notifications-module.js"></script>
+    <script src="./components/notifications/notifications-controller.js"></script>
+    <script src="./components/notifications/notifications-directive.js"></script>
+    <script src="./components/notifications/notifications-factory.js"></script>
 
   </head>
 
@@ -20,11 +23,9 @@
       <my-header></my-header>
     </section>
 
-    <!--<section ng-controller="appController">-->
-
-      <!--<h1 data-ng-repeat="user in users">Username: {{::user.getName()}}</h1>-->
-
-    <!--</section>-->
+    <section>
+      <notifications></notifications>
+    </section>
 
   </body>
 

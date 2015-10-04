@@ -1,5 +1,13 @@
-<header ng-controller="HeaderController as vm">
+<header ng-controller="HeaderController as Header">
 
-  <span>{{vm.notifcationsCount()}}</span>
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Search</li>
+      <li>Profile</li>
+    </ul>
+  </nav>
+
+  <span style="color: red" ng-show="Header.NotificationsFactory.hasNotifications()">New Notifications: {{Header.NotificationsFactory.getNotificationsCount()}}</span>
 
 </header>

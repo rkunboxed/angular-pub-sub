@@ -9,8 +9,7 @@
   function headerDirective() {
     return {
       restrict: 'E',
-      templateUrl: '/components/header/header-template.html',
-      controller: 'HeaderController'
+      templateUrl: '/components/header/header-template.html'
     };
   }
 
