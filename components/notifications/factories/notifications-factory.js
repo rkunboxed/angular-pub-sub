@@ -16,6 +16,8 @@
   notificationsFactory.$inject = ['$interval'];
 
   function notificationsFactory($interval) {
+    var notifications = [];
+    var callbacks = [];
 
     //simulating an API response or websocket callbacks
     var mockNotifications = [{
@@ -32,51 +34,42 @@
       title: 'Notification 6'
     }];
 
-    var NotificationsFactory = function(){
-      var notifications = [];
-      var callbacks = [];
+    function publishEvents(){
+      angular.forEach(callbacks, function(obj, idx){
+        console.log('publish event for ' + obj.name);
+        obj.func(notifications);
+      });
+    }
 
-      function publishEvent(){
-        angular.forEach(callbacks, function(obj, idx){
-          console.log('publish event for ' + obj.name);
-          obj.func(notifications);
-        });
+    //mock a polling request
+    $interval(function(){
+      var rand = Math.floor((Math.random() * mockNotifications.length) + 1);
+
+      notifications = mockNotifications.slice(0, rand);
+
+      publishEvents();
+    }, 3000);
+
+    return {
+      getNotifications: function () {
+        return notifications;
+      },
+
+      getNotificationsCount: function () {
+        return notifications.length;
+      },
+
+      hasNotifications: function () {
+        return notifications.length > 0;
+      },
+
+      registerCallback: function (callbackName, callbackFunction) {
+        callbacks.push({
+          name: callbackName,
+          func: callbackFunction
+        })
       }
-
-      $interval(function(){
-        var rand = Math.floor((Math.random() * mockNotifications.length) + 1);
-
-        notifications = mockNotifications.slice(0, rand);
-
-        publishEvent();
-      }, 3000);
-
-      return {
-        getNotifications: function(){
-
-          return notifications;
-        },
-
-        getNotificationsCount: function(){
-          return notifications.length;
-        },
-
-        hasNotifications: function () {
-          return notifications.length > 0;
-        },
-
-        registerCallback: function(callbackName, callbackFunction){
-          callbacks.push({
-            name: callbackName,
-            func: callbackFunction
-          })
-        }
-
-      };
-
-    };
-
-    return new NotificationsFactory();
+    }
 
   }
 }(angular));
