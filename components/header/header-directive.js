@@ -9,7 +9,7 @@
   function headerDirective() {
     return {
       restrict: 'E',
-      templateUrl: '/components/header/header-template.html'
+      templateUrl: '/components/header/templates/header-template.html'
     };
   }
 

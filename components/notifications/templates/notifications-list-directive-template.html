@@ -1,0 +1,8 @@
+<div>
+
+  <h1 ng-hide="NotificationsListCtrl.hasNotifications()">Checking for notifications...</h1>
+  <h1 ng-show="NotificationsListCtrl.hasNotifications()">You have {{NotificationsListCtrl.notifications.length}} new notifications!  Lucky you</h1>
+
+  <h3 ng-repeat="notification in NotificationsListCtrl.notifications">{{notification.title}}</h3>
+
+</div>

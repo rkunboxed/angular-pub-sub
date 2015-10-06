@@ -3,6 +3,8 @@
 (function (angular) {
 
   angular
-    .module('header', []);
+    .module('header', [
+      'notifications'
+    ]);
 
 })(angular);
