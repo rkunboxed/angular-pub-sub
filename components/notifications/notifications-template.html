@@ -1,8 +1,8 @@
-<div ng-controller="NotificationsController as Notifications">
+<div>
 
-  <h1 ng-hide="Notifications.hasNotifications()">Checking for notifications...</h1>
-  <h1 ng-show="Notifications.hasNotifications()">You have {{Notifications.notifications.length}} new notifications!  Lucky you</h1>
+  <h1 ng-hide="NotificationsCtrl.hasNotifications()">Checking for notifications...</h1>
+  <h1 ng-show="NotificationsCtrl.hasNotifications()">You have {{NotificationsCtrl.notifications.length}} new notifications!  Lucky you</h1>
 
-  <h3 ng-repeat="notification in Notifications.notifications">{{notification.title}}</h3>
+  <h3 ng-repeat="notification in NotificationsCtrl.notifications">{{notification.title}}</h3>
 
 </div>
