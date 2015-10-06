@@ -34,6 +34,11 @@
       title: 'Notification 6'
     }];
 
+    //This could be setup to leverage a pub-sub specific service to encapsulate
+    //register
+    //unregister
+    //trigger
+    //managing the callbacks
     function publishEvents(){
       angular.forEach(callbacks, function(obj, idx){
         console.log('publish event for ' + obj.name);
